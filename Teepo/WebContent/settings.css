@@ -1,0 +1,32 @@
+@charset "ISO-8859-1";
+
+body {
+  margin: 0;
+  font-size: 15px;
+  font-family:"Lucida Sans Unicode";
+  line-height: 1.3em;
+}
+.main {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px 50px 1fr;
+  background-color: #01407e;
+  color: #eee;
+}
+.navbar {
+  padding-left: 13px;
+  display: flex;
+  align-items: center;
+}
+.mainbar {
+  padding-left: 12px;
+  background-color: #006262;
+  font-size: 1.4rem;
+}
+.navbar.board {
+  font-size: 1.1rem;
+}
+.listas {
+  display: flex;
+  overflow-x: auto;
+}
