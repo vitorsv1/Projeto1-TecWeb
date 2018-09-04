@@ -63,7 +63,7 @@ public class DAO {
 			while (rs.next()) {
 				Pessoas user = new Pessoas();
 				user.setIdPessoa(rs.getInt("idPessoa"));
-				user.setNome(rs.getString("nomePessoa"));
+				user.setNomePessoa(rs.getString("nomePessoa"));
 				user.setEmail(rs.getString("email"));
 				user.setSenha(rs.getString("senha"));
 				
@@ -91,7 +91,7 @@ public class DAO {
 				Categorias categ = new Categorias();
 				categ.setIdCategoria(rs.getInt("idCategoria"));
 				categ.setTitulo(rs.getString("titulo"));
-				categ.setIdPessoa(rs.getString("idPessoa"));
+				categ.setIdPessoa(rs.getInt("idPessoa"));
 				
 				Categorias.add(categ);
 				}
@@ -112,10 +112,10 @@ public class DAO {
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setString(1,nota.getNome());
-			stmt.setDate(2, new Date(
-						 nota.getNascimento().getTimeInMillis()));
-			stmt.setDouble(3,nota.getAltura());
+			//stmt.setString(1,nota.getNome());
+			//stmt.setDate(2, new Date(
+			//			 nota.getNascimento().getTimeInMillis()));
+			//stmt.setDouble(3,nota.getAltura());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
