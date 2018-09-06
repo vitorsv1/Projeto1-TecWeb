@@ -2,7 +2,6 @@ package br.edu.insper;
 
 public class Notas {
 	private Integer idNota;
-	private Integer idPessoa;
 	private Integer idCategoria;
 	private String conteudo;
 	private String cor;
@@ -12,12 +11,6 @@ public class Notas {
 	}
 	public void setIdNota(Integer idNota) {
 		this.idNota = idNota;
-	}
-	public Integer getIdPessoa() {
-		return idPessoa;
-	}
-	public void setIdPessoa(Integer idPessoa) {
-		this.idPessoa = idPessoa;
 	}
 	public Integer getIdCategoria() {
 		return idCategoria;
