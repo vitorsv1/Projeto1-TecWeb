@@ -10,3 +10,5 @@ CREATE TABLE notas (
     conteudo TEXT,
     idCategoria INT(5)    
     REFERENCES categorias(idCategoria));
+    
+SET GLOBAL time_zone = '-03:00';
