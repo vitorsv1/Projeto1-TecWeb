@@ -28,7 +28,7 @@ public class DAO {
 		PreparedStatement stmt;
 		try {
 			stmt = connection.
-					prepareStatement("SELECT * FROM nota");
+					prepareStatement("SELECT * FROM notas");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Notas nota = new Notas();
@@ -76,8 +76,8 @@ public class DAO {
 	
 	public void adiciona(Notas nota) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
 												 //se não funcionar, ver o edita do handout
-		String sql = "INSERT INTO nota" +
-					 "(idNota,idPessoa,idCategoria,conteudo,cor) values(?,?,?,?,?)";
+		String sql = "INSERT INTO notas" +
+					 "(idNota,idCategoria,conteudo) values(?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class DAO {
 		PreparedStatement stmt;
 		try {
 			stmt = connection
-			 .prepareStatement("DELETE FROM Notas WHERE id=?");
+			 .prepareStatement("DELETE FROM notas WHERE id=?");
 			stmt.setLong(1, id);
 			stmt.execute();
 			stmt.close();
