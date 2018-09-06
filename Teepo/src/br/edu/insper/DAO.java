@@ -33,7 +33,6 @@ public class DAO {
 			while (rs.next()) {
 				Notas nota = new Notas();
 				nota.setIdNota(rs.getInt("idNota"));
-				nota.setIdPessoa(rs.getInt("idPessoa"));
 				nota.setIdCategoria(rs.getInt("idCategoria"));
 				nota.setConteudo(rs.getString("conteudo"));
 				nota.setCor(rs.getString("cor"));
@@ -49,33 +48,6 @@ public class DAO {
 		return Notas;
 		
 	}
-	
-	public List<Pessoas> getPessoas(){          //getLista dos Pessoas
-		List<Pessoas> Pessoas = new ArrayList<Pessoas>();
-		
-		PreparedStatement stmt;
-		try {
-			stmt = connection.
-					prepareStatement("SELECT * FROM Pessoas");
-			ResultSet rs = stmt.executeQuery();
-			while (rs.next()) {
-				Pessoas user = new Pessoas();
-				user.setIdPessoa(rs.getInt("idPessoa"));
-				user.setNomePessoa(rs.getString("nomePessoa"));
-				user.setEmail(rs.getString("email"));
-				user.setSenha(rs.getString("senha"));
-				
-				Pessoas.add(user);
-				}
-			rs.close();
-			stmt.close();
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return Pessoas;
-		
-	}
 
 	public List<Categorias> getCategorias(){          //getLista das Categorias
 		List<Categorias> Categorias = new ArrayList<Categorias>();
@@ -89,7 +61,6 @@ public class DAO {
 				Categorias categ = new Categorias();
 				categ.setIdCategoria(rs.getInt("idCategoria"));
 				categ.setTitulo(rs.getString("titulo"));
-				categ.setIdPessoa(rs.getInt("idPessoa"));
 				
 				Categorias.add(categ);
 				}
