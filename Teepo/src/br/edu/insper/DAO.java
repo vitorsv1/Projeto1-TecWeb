@@ -17,7 +17,7 @@ public class DAO {
 		}
 		try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/teepo", "root", "senha");
+			"jdbc:mysql://localhost/teepo", "root", "senhaaaa");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -74,24 +74,38 @@ public class DAO {
 		
 	}
 	
-	public void adiciona(Notas nota) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
-												 //se não funcionar, ver o edita do handout
+	public void adicionaNota(Notas nota) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
+												     //se não funcionar, ver o edita do handout
 		String sql = "INSERT INTO notas" +
 					 "(idNota,idCategoria,conteudo) values(?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			//stmt.setString(1,nota.getNome());
-			//stmt.setDate(2, new Date(
-			//			 nota.getNascimento().getTimeInMillis()));
-			//stmt.setDouble(3,nota.getAltura());
+			stmt.setInt(1,nota.getIdNota());
+			stmt.setInt(2, nota.getIdCategoria());
+			stmt.setString(3,nota.getConteudo());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			}
 		}
+	
+	public void adicionaCategoria(Categorias categ) {           //adiciona/edita Categorias
 		
+		String sql = "INSERT INTO categorias" +
+					 "(titulo) values(?)";
+		PreparedStatement stmt;
+		System.out.println(categ.getTitulo());
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, categ.getTitulo());
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	public void remove(Integer id) {				//remove nota do id x
 		PreparedStatement stmt;
 		try {
