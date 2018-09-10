@@ -50,8 +50,10 @@ public class CriaCategoria2 extends HttpServlet {
 		
 		dao.adicionaCategoria(categ);
 		 
-		 
 		dao.close();
+		
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
+	
 
 }

@@ -13,22 +13,16 @@
     <nav class="navbar board">Teepo</nav> 
     <nav class="navbar">Board</nav>
     <div class="listas">
+    	<%String link = "home.jsp"; %>
     	<div class="cria-categoria">
 	    	<form method='post'>
 		   		<h3>Titulo da Categoria: <input type='text' name='titulo'></h3>
-		   		<a href="home.jsp"><button>Criar Categoria</button></a>
+		   		<a href=<%=link %>><button type="submit">Criar Categoria</button></a>
 		   	</form>
     	</div>
+        
         <div class="lista">
-            <header>Categoria</header>
-            <ul>
-             <li>Cartão</li>
-             <li>Cartão2</li>
-         </ul>
-            <footer name='adiciona-nota'>Adicionar Nota..</footer>
-        </div>
-        <div class="lista">
-            <header>Categoria2</header>
+            <header>Categoria1</header>
             	<ul>
              <li>Cartão</li>
              <li>Cartão2</li>
