@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class DAO {
 	private Connection connection = null;
 	public DAO() {
@@ -64,12 +65,28 @@ public class DAO {
 				}
 			}
 	
-	public void removeCategoria(Integer id) {				//remove categoria do id x
+	public void alteraCategoria(Categorias categ) {
+		String sql = "UPDATE categorias SET " +
+					 "titulo=?  WHERE idCategoria=?";
+		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, categ.getTitulo());
+			stmt.setInt(2, categ.getIdCategoria());
+			stmt.execute();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		}
+	
+	public void removeCategoria(String titulo) {				//remove categoria do id x
 		PreparedStatement stmt;
 		try {
 			stmt = connection
-			 .prepareStatement("DELETE FROM categorias WHERE idCategoria=?");
-			stmt.setLong(1, id);
+			 .prepareStatement("DELETE FROM categorias WHERE titulo=?");
+			stmt.setString(1, titulo);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
