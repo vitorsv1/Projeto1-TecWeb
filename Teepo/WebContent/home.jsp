@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="settings.css">
     </head>
     <body>
+    	<%@ page import="java.util.*,br.edu.insper.*"%>
         <div class="init">
         <nav class="navbar">Teeppo</nav> 
         <nav class="navbar board">Board</nav>   
@@ -15,6 +16,7 @@
         	<div class="lista">
                 <a href="criaCategoria.jsp"><button>Criar Categoria</button></a>
             </div>
+           <!-- AQUI TEM QUE TER O RETURN DAS CATEGORIAS COM TABELAS-->
         </div>
     	</div>
     </body>
