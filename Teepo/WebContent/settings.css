@@ -81,10 +81,9 @@ body {
 .lista ul li:not(:last-child) {
   margin-bottom: 10px;
 }
-adiciona{
-  padding-left: 13px;
-  font-size: 1.4 rem;
-  display: flex;
-  align-items: center;
-  background-color: #3e3eff;
+cria-categoria h3{
+  font-family:"Lucida Sans Unicode";
+  line-height: 36px;
+  font-size: 16px;
+  font-weight: bold;
 }
