@@ -15,8 +15,8 @@
     <div class="listas">
     	<%String link = "home.jsp"; %>
     	<div class="cria-categoria">
-	    	<form method='post'>
-		   		<h3>Titulo da Categoria: <input type='text' name='titulo'></h3>
+	    	<form action="CriarCategoria2">
+		   		<h3>Titulo da Categoria: <input type='text' name='tituloCategoria'></h3>
 		   		<a href=<%=link %>><button type="submit">Criar Categoria</button></a>
 		   	</form>
     	</div>

@@ -18,7 +18,7 @@ public class DAO {
 		}
 		try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/teepo", "root", "Mendez575");
+			"jdbc:mysql://localhost/teepo", "root", "Certezajorge123");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

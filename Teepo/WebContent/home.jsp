@@ -26,8 +26,8 @@
            				
            			
            			for (Categorias categ: categorias){
-           				link = "editCateg.jsp?categ_id=";
-           				link += categ.getIdCategoria();
+           				//link = "editCateg.jsp?categ_id=";
+           				//link += categ.getIdCategoria();
            			
            %>
            <div class="lista">
