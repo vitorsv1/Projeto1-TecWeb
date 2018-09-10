@@ -17,10 +17,10 @@ public class CriaNota extends HttpServlet {
 		out.println("<html><body>");
 		out.println("<form method='post'>");
 		out.println("Conteudo: <input type='text' name='conteudo'><br>");
-		out.println("Categoria: <input type='text' name='titulo'><br>");
+		//out.println("Categoria: <input type='text' name='titulo'><br>");
 		out.println("<input type='submit' value='Submit'>");
 		out.println("</form>");
-		out.println("<body><html>");
+		out.println("</body></html>");
 	 }
 	
 	@Override
@@ -31,17 +31,17 @@ public class CriaNota extends HttpServlet {
 		DAO dao = new DAO();
 		 
 		Notas nota = new Notas();
-		Categorias categ = new Categorias();
+		//Categorias categ = new Categorias();
 		
 		nota.setConteudo(request.getParameter("conteudo"));
-		categ.getIdCategoria();
+		//categ.getIdCategoria();
 		
 		dao.adicionaNota(nota);
 		 
-		 PrintWriter out = response.getWriter();
-		 out.println("<html><body>");
-		 out.println("adicionado" + nota.getConteudo() + "na Categoria" + categ.getTitulo());
-		 out.println("</body></html>");		 
+		 //PrintWriter out = response.getWriter();
+		 //out.println("<html><body>");
+		 //out.println("adicionado" + nota.getConteudo() + "na Categoria" + categ.getTitulo());
+		 //out.println("</body></html>");		 
 		 dao.close();
 }
 }

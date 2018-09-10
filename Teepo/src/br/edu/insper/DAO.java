@@ -22,7 +22,7 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
-	public List<Notas> getNotas(){          //getLista das Notas
+	public List<Notas> getNotas(){          //Pega todas as Notas do database
 		List<Notas> Notas = new ArrayList<Notas>();
 		
 		PreparedStatement stmt;
@@ -35,7 +35,6 @@ public class DAO {
 				nota.setIdNota(rs.getInt("idNota"));
 				nota.setIdCategoria(rs.getInt("idCategoria"));
 				nota.setConteudo(rs.getString("conteudo"));
-				nota.setCor(rs.getString("cor"));
 				
 				Notas.add(nota);
 				}
@@ -49,7 +48,7 @@ public class DAO {
 		
 	}
 
-	public List<Categorias> getCategorias(){          //getLista das Categorias
+	public List<Categorias> getCategorias(){          //Pega todas as Categorias do database
 		List<Categorias> Categorias = new ArrayList<Categorias>();
 		
 		PreparedStatement stmt;
@@ -106,6 +105,7 @@ public class DAO {
 				e.printStackTrace();
 			}
 		}
+
 	public void remove(Integer id) {				//remove nota do id x
 		PreparedStatement stmt;
 		try {
