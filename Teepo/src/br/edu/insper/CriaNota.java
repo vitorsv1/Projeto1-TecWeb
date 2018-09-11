@@ -24,13 +24,14 @@ public class CriaNota extends HttpServlet {
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer idCateg = Integer.parseInt(request.getParameter("IdCategoria"));
+		
 		DAO dao = new DAO();
 		 
 		Notas nota = new Notas();
-		//Categorias categ = new Categorias();
 		
 		nota.setConteudo(request.getParameter("conteudo"));
-		//categ.getIdCategoria();
+		nota.setIdCategoria(idCateg);
 		
 		dao.adicionaNota(nota);
 		 	 

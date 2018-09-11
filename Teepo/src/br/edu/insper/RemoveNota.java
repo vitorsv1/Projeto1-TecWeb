@@ -39,6 +39,17 @@ public class RemoveNota extends HttpServlet {
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer idCateg = Integer.parseInt(request.getParameter("IdCategoria"));
+		Integer idNota = Integer.parseInt(request.getParameter("IdNota"));
 		
+		DAO dao = new DAO();
+		
+		dao.removeNota(idNota,idCateg);
+		
+		dao.close();
+		
+		request.setAttribute("IdCategoria", idCateg);
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
+	
 }
