@@ -149,13 +149,13 @@ public class DAO {
 	public void adicionaNota(Notas nota) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
 	     											 //se não funcionar, ver o edita do handout
 		String sql = "INSERT INTO notas" +
-					 "(idNota,idCategoria,conteudo) values(?,?,?)";
+					 "(idNota,conteudo,idCategoria) values(?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setInt(1,nota.getIdNota());
-			stmt.setInt(2, nota.getIdCategoria());	
+			stmt.setInt(1,nota.getIdNota());	
 			stmt.setString(3,nota.getConteudo());
+			stmt.setInt(2, nota.getIdCategoria());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

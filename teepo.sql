@@ -8,7 +8,7 @@ CREATE TABLE categorias (
 CREATE TABLE notas (
 	idNota INT(5) PRIMARY KEY AUTO_INCREMENT,
     conteudo TEXT,
-    idCategoria INT(5)    
-    REFERENCES categorias(idCategoria));
+    idCategoria INT(5),  
+    FOREIGN KEY(idCategoria) REFERENCES categorias(idCategoria));
     
 SET GLOBAL time_zone = '-03:00';
