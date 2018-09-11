@@ -18,7 +18,7 @@ public class DAO {
 		}
 		try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/teepo", "root", "Certezajorge123");
+			"jdbc:mysql://localhost/teepo", "root", "Mendez575");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -94,6 +94,8 @@ public class DAO {
 			}
 		}
 	
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
+	
 	public List<Notas> getNotas(){          //Pega todas as Notas do database
 		List<Notas> Notas = new ArrayList<Notas>();
 		
@@ -120,29 +122,53 @@ public class DAO {
 		
 	}
 	
+	public List<Notas> notasCategoria(Categorias categ){
+		List<Notas> Notas = new ArrayList<Notas>();
+		Integer id_categ = categ.getIdCategoria();
+		PreparedStatement stmt;
+		try {
+			stmt = connection.
+					prepareStatement("SELECT * FROM notas WHERE idCategoria="+ id_categ);
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Notas nota = new Notas();
+				nota.setIdNota(rs.getInt("idNota"));
+				nota.setIdCategoria(rs.getInt("idCategoria"));
+				nota.setConteudo(rs.getString("conteudo"));	
+				Notas.add(nota);
+				}
+			rs.close();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		return Notas;
+		}	
+	
 	public void adicionaNota(Notas nota) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
-												     //se não funcionar, ver o edita do handout
+	     											 //se não funcionar, ver o edita do handout
 		String sql = "INSERT INTO notas" +
 					 "(idNota,idCategoria,conteudo) values(?,?,?)";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1,nota.getIdNota());
-			stmt.setInt(2, nota.getIdCategoria());
+			stmt.setInt(2, nota.getIdCategoria());	
 			stmt.setString(3,nota.getConteudo());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			}
-		}	
+	}	
 
-	public void removeNota(Integer id) {				//remove nota do id x
+	public void removeNota(Integer idNota) {				//remove nota do id x da categoria y  (NÃO PRONTO)
 		PreparedStatement stmt;
 		try {
 			stmt = connection
 			 .prepareStatement("DELETE FROM notas WHERE idNota=?");
-			stmt.setLong(1, id);
+			stmt.setLong(1, idNota);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
