@@ -43,6 +43,7 @@ public class RemoveCategoria2 extends HttpServlet {
 		Integer IdCategoria = Integer.parseInt(request.getParameter("IdCategoria"));
 		
 		DAO dao = new DAO();
+		dao.removeTodasNotas(IdCategoria);
 		dao.removeCategoria(IdCategoria);
 		dao.close();
 		

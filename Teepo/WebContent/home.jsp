@@ -21,12 +21,12 @@
            <%
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
-           			List<Notas> notas = dao.getNotas();
            			String link,linkNota;
            			
            			if (categorias != null){
            				           			
            			for (Categorias categ: categorias){
+           				List<Notas> notas = dao.notasCategoria(categ);
            				String IdCategoria = categ.getIdCategoria().toString();
            				link = "editCateg.jsp?categ_id=";
            				link += categ.getIdCategoria();
@@ -36,10 +36,11 @@
            		<header><%=categ.getTitulo()%></header>
            			<ul>
            			<% 
+           				
 	           			for (Notas nota: notas){
-	       					String IdNota = nota.getIdNota().toString();	
-	   						linkNota = "editaNota.jsp?nota_id=";
-	   						linkNota += nota.getIdNota();
+	       					String IdNota = nota.getIdNota().toString();
+	   						//linkNota = "editaNota.jsp?nota_id=";
+	   						//linkNota += nota.getIdNota();
            			%>
            			
            				<li><%=nota.getConteudo() %></li>

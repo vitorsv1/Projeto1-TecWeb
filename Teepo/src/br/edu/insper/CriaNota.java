@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet("/criaNota")
+@WebServlet("/CriaNota")
 public class CriaNota extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -30,13 +30,16 @@ public class CriaNota extends HttpServlet {
 		 
 		Notas nota = new Notas();
 		
-		System.out.println(request.getParameter("ConteudoNota"));
+		System.out.println("AAAAAAAAAAAAAAA");
+		System.out.println(request.getParameter("conteudoNota"));
 		
-		nota.setConteudo(request.getParameter("ConteudoNota"));
+		nota.setConteudo(request.getParameter("conteudoNota"));
 		nota.setIdCategoria(idCateg);
 		
-		dao.adicionaNota(nota);
+		dao.adicionaNota(nota, idCateg);
 		 	 
 		dao.close();
+		
+		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
 }

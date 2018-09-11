@@ -24,9 +24,9 @@
         <div class="lista">
             <header>Categoria1</header>
             	<ul>
-             <li>Cartão</li>
-             <li>Cartão2</li>
-             </ul>
+		             <li>Cartão</li>
+		             <li>Cartão2</li>
+             	</ul>
             <footer name='adiciona-nota'>Adicionar Nota..</footer>
         </div>
     </div>

@@ -21,12 +21,13 @@
            <%
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
-           			List<Notas> notas = dao.getNotas();
+           			
            			String link, linkNota;
            			
            			if (categorias != null){
            				           			
 	           			for (Categorias categ: categorias){
+	           				List<Notas> notas = dao.notasCategoria(categ);
 	           				String IdCategoria = categ.getIdCategoria().toString();
 	           				link = "editaCategoria.jsp?categ_id=";
 	           				link += categ.getIdCategoria();
@@ -35,26 +36,30 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
+           		<form action="CriaNota">
            			<ul>
            			<% 
+           			
 	           			for (Notas nota: notas){
+	           				
 	       					String IdNota = nota.getIdNota().toString();	
-	   						linkNota = "editaNota.jsp?nota_id=";
-	   						linkNota += nota.getIdNota();
+	   						//linkNota = "editaNota.jsp?nota_id=";
+	   						//linkNota += nota.getIdNota();
+	   						System.out.println("BBBBBBBBBBBBBbb");
            			%>
            			
            				<li><%=nota.getConteudo() %></li>
            			<% } %>
            			</ul>
-           		<footer>Adicionar Nota...</footer>
-           		<div class="container">
-           			<div style="display: inline-block">
-           				<form action="CriaNota">
-	           				<input type="text" name="ConteudoNota">
-	           				<a href="home.jsp"><button type="submit">Confirmar</button></a>
-           				</form>
+           			<footer>Adicionar Nota...</footer>
+           			<div class="container">
+           				<div style="display: inline-block">
+           					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+	           				<input type="text" name="conteudoNota">
+	           				<a href="home.jsp"><button type="submit">Confirmar Nota</button></a>
+           				</div>
            			</div>
-           		</div>
+           		</form>
            		<br>
            		<div class="container">
            			<div style="display: inline-block">
