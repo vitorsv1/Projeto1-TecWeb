@@ -122,7 +122,7 @@ public class DAO {
 		
 	}
 	
-	public List<Notas> notasCategoria(Categorias categ){
+	public List<Notas> notasCategoria(Categorias categ){   //Pega as notas da categoria especifica
 		List<Notas> Notas = new ArrayList<Notas>();
 		Integer id_categ = categ.getIdCategoria();
 		PreparedStatement stmt;
