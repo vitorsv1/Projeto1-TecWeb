@@ -154,8 +154,8 @@ public class DAO {
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setInt(1,nota.getIdNota());	
-			stmt.setString(3,nota.getConteudo());
-			stmt.setInt(2, nota.getIdCategoria());
+			stmt.setString(2,nota.getConteudo());
+			stmt.setInt(3, nota.getIdCategoria());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -163,7 +163,7 @@ public class DAO {
 			}
 	}	
 
-	public void removeNota(Integer idNota) {				//remove nota do id x da categoria y  (NÃO PRONTO)
+	public void removeNota(Integer idNota) {				//remove nota do id x
 		PreparedStatement stmt;
 		try {
 			stmt = connection
