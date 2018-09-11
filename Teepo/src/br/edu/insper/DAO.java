@@ -163,7 +163,7 @@ public class DAO {
 			}
 	}	
 
-	public void removeNota(Integer idNota, Integer idCategoria) {				//remove nota do id x da categoria y  (NÃO PRONTO)
+	public void removeNota(Integer idNota) {				//remove nota do id x da categoria y  (NÃO PRONTO)
 		PreparedStatement stmt;
 		try {
 			stmt = connection
