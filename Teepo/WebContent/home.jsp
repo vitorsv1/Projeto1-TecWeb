@@ -37,11 +37,18 @@
            				<li>...Nota... </li>
            			</ul>
            		<footer>Adicionar Nota...</footer>
-           		<form action="RemoveCategoria2">
-           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-           			<button type="submit">Deletar Categoria</button>
-           		</form>
-        		<a href="editaCategoria.jsp"><button>Editar Categoria</button></a>
+           		<br>
+           		<div class="container">
+           			<div style="display: inline-block">
+	           			<form action="RemoveCategoria2">
+	           				<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+	           				<button type="submit">Deletar Categoria</button>
+	           			</form>
+           			</div>
+           			<div style="display: inline-block">
+           				<a href="editaCategoria.jsp"><button>Editar Categoria</button></a>
+        			</div>
+        		</div>
            </div>
            <% }
            			}%>

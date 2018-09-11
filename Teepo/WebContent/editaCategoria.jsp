@@ -37,15 +37,21 @@
            				<li>...Nota... </li>
            			</ul>
            		<footer>Adicionar Nota...</footer>
-           		<form action="RemoveCategoria2">
-           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-           			<button type="submit">Deletar Categoria</button>
-           		</form>
-           		<form action="EditaCategoria">
-           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-           			<input type="text" name="TituloCategoria">
-           			<button>Confirmar</button>
-           		</form>
+           		<br>
+           		<div style="display: inline-block">
+	           		<form action="RemoveCategoria2">
+	           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+	           			<button type="submit">Deletar Categoria</button>
+	           		</form>
+	           	</div>
+	           	<br>
+	           	<div style="display: inline-block">
+	           		<form action="EditaCategoria">
+	           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+	           			<input type="text" name="TituloCategoria">
+	           			<button>Confirmar</button>
+	           		</form>
+	           	</div>
            </div>
            <% }
            			}%>
