@@ -18,7 +18,7 @@ public class DAO {
 		}
 		try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/teepo", "root", "Mendez575");
+			"jdbc:mysql://localhost/teepo", "root", "Certezajorge123");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -160,7 +160,20 @@ public class DAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			}
-	}	
+	}
+	
+	public void removeTodasNotas(Integer id_categ) {
+		PreparedStatement stmt;
+		try {
+			stmt = connection
+			 .prepareStatement("DELETE FROM notas WHERE idCategoria=?");
+			stmt.setLong(1, id_categ);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+	}
 
 	public void removeNota(Integer idNota) {				//remove nota do id x
 		PreparedStatement stmt;
