@@ -37,6 +37,11 @@
            				<li>...Nota... </li>
            			</ul>
            		<footer>Adicionar Nota...</footer>
+           		<div class="container">
+           			<div style="display: inline-block">
+           				<a href="criaNota.jsp"><button type="submit">Criar Nota</button></a>
+           			</div>
+           		</div>
            		<br>
            		<div class="container">
            			<div style="display: inline-block">

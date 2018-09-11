@@ -22,18 +22,19 @@
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
            			List<Notas> notas = dao.getNotas();
-           			String link;
+           			String link, linkNota;
            			
            			if (categorias != null){
            				           			
-           			for (Categorias categ: categorias){
-           				String IdCategoria = categ.getIdCategoria().toString();
-           				link = "editCateg.jsp?categ_id=";
-           				link += categ.getIdCategoria();
-           				
-           				for (Notas nota: notas){
-           					String IdNota = nota.getIdNota().toString();	
-           				
+	           			for (Categorias categ: categorias){
+	           				String IdCategoria = categ.getIdCategoria().toString();
+	           				link = "editaCategoria.jsp?categ_id=";
+	           				link += categ.getIdCategoria();
+	           				
+	           				for (Notas nota: notas){
+	           					String IdNota = nota.getIdNota().toString();	
+           						linkNota = "editaNota.jsp?nota_id=";
+           						linkNota += nota.getIdNota();
            			
            %>
            <div class="lista">
@@ -44,10 +45,8 @@
            		<footer>Adicionar Nota...</footer>
            		<div class="container">
            			<div style="display: inline-block">
-           				<form action="CriaNota">
-           					<input type="hidden" name="IdNota" value="<%=IdNota %>">
-           					<button type="submit">Criar Nota</button>
-           				</form>
+           				<input type="text" name="ConteudoNota">
+           				<a href="home.jsp"><button type="submit">Confirmar</button></a>
            			</div>
            		</div>
            		<br>
