@@ -146,7 +146,7 @@ public class DAO {
 		return Notas;
 		}	
 	
-	public void adicionaNota(Notas nota, Categorias categ) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
+	public void adicionaNota(Notas nota, Integer id_categ) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
 	     											 //se não funcionar, ver o edita do handout
 		String sql = "INSERT INTO notas" +
 					 "(conteudo,idCategoria) values(?,?)";
@@ -154,7 +154,7 @@ public class DAO {
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1,nota.getConteudo());
-			stmt.setInt(2, categ.getIdCategoria());
+			stmt.setInt(2, id_categ);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
