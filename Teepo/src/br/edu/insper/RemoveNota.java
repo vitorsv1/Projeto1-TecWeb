@@ -44,7 +44,7 @@ public class RemoveNota extends HttpServlet {
 		
 		DAO dao = new DAO();
 		
-		dao.removeNota(idNota,idCateg);
+		dao.removeNota(idNota);
 		
 		dao.close();
 		
