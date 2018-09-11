@@ -9,38 +9,49 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CriaCategoria2
+ * Servlet implementation class EditaCategoria
  */
-@WebServlet("/CriaCategoria2")
-public class CriaCategoria2 extends HttpServlet {
+@WebServlet("/EditaCategoria")
+public class EditaCategoria extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CriaCategoria2() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EditaCategoria() {
         super();
+        // TODO Auto-generated constructor stub
     }
-    
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer IdCategoria = Integer.parseInt(request.getParameter("IdCategoria"));
 		
 		DAO dao = new DAO();
-		 
-		Categorias categ = new Categorias();
-		//System.out.println(request.getParameter("tituloCategoria"));
-		categ.setTitulo(request.getParameter("tituloCategoria"));
 		
-		dao.adicionaCategoria(categ);
-		 
+		Categorias categ = new Categorias();
+		categ.setTitulo(request.getParameter("TituloCategoria"));
+		categ.setIdCategoria(IdCategoria);
+		
+		dao.alteraCategoria(categ);
+				
 		dao.close();
 		
 		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
-	
 
 }

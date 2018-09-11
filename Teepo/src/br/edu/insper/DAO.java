@@ -54,7 +54,7 @@ public class DAO {
 			String sql = "INSERT INTO categorias" +
 						 "(titulo) values(?)";
 			PreparedStatement stmt;
-			System.out.println(categ.getTitulo());
+			//System.out.println(categ.getTitulo());
 			try {
 				stmt = connection.prepareStatement(sql);
 				stmt.setString(1, categ.getTitulo());
@@ -81,12 +81,12 @@ public class DAO {
 			}
 		}
 	
-	public void removeCategoria(String titulo) {				//remove categoria do id x
+	public void removeCategoria(Integer Id) {				//remove categoria do id x
 		PreparedStatement stmt;
 		try {
 			stmt = connection
-			 .prepareStatement("DELETE FROM categorias WHERE titulo=?");
-			stmt.setString(1, titulo);
+			 .prepareStatement("DELETE FROM categorias WHERE idCategoria=?");
+			stmt.setInt(1, Id);
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {

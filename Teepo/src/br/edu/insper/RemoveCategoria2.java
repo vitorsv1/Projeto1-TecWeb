@@ -1,6 +1,7 @@
 package br.edu.insper;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,38 +10,42 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CriaCategoria2
+ * Servlet implementation class RemoveCategoria2
  */
-@WebServlet("/CriaCategoria2")
-public class CriaCategoria2 extends HttpServlet {
+@WebServlet("/RemoveCategoria2")
+public class RemoveCategoria2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public CriaCategoria2() {
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public RemoveCategoria2() {
         super();
+        // TODO Auto-generated constructor stub
     }
-    
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-	
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer IdCategoria = Integer.parseInt(request.getParameter("IdCategoria"));
 		
 		DAO dao = new DAO();
-		 
-		Categorias categ = new Categorias();
-		//System.out.println(request.getParameter("tituloCategoria"));
-		categ.setTitulo(request.getParameter("tituloCategoria"));
-		
-		dao.adicionaCategoria(categ);
-		 
+		dao.removeCategoria(IdCategoria);
 		dao.close();
 		
 		request.getRequestDispatcher("home.jsp").forward(request, response);
 	}
-	
-
 }

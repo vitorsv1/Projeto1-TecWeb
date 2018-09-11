@@ -41,7 +41,11 @@
            			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
            			<button type="submit">Deletar Categoria</button>
            		</form>
-        		<a href="editaCategoria.jsp"><button>Editar Categoria</button></a>
+           		<form action="EditaCategoria">
+           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+           			<input type="text" name="TituloCategoria">
+           			<button>Confirmar</button>
+           		</form>
            </div>
            <% }
            			}%>
