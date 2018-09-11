@@ -31,22 +31,28 @@
 	           				link = "editaCategoria.jsp?categ_id=";
 	           				link += categ.getIdCategoria();
 	           				
-	           				for (Notas nota: notas){
-	           					String IdNota = nota.getIdNota().toString();	
-           						linkNota = "editaNota.jsp?nota_id=";
-           						linkNota += nota.getIdNota();
            			
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
            			<ul>
-           				<li>...Nota... </li>
+           			<% 
+	           			for (Notas nota: notas){
+	       					String IdNota = nota.getIdNota().toString();	
+	   						linkNota = "editaNota.jsp?nota_id=";
+	   						linkNota += nota.getIdNota();
+           			%>
+           			
+           				<li><%=nota.getConteudo() %></li>
+           			<% } %>
            			</ul>
            		<footer>Adicionar Nota...</footer>
            		<div class="container">
            			<div style="display: inline-block">
-           				<input type="text" name="ConteudoNota">
-           				<a href="home.jsp"><button type="submit">Confirmar</button></a>
+           				<form action="CriaNota">
+	           				<input type="text" name="ConteudoNota">
+	           				<a href="home.jsp"><button type="submit">Confirmar</button></a>
+           				</form>
            			</div>
            		</div>
            		<br>
@@ -64,7 +70,7 @@
            </div>
            <% }
            	  	}
-           			}%>
+           	%>
         </div>
     	</div>
     </body>

@@ -21,7 +21,8 @@
            <%
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
-           			String link;
+           			List<Notas> notas = dao.getNotas();
+           			String link,linkNota;
            			
            			if (categorias != null){
            				           			
@@ -34,7 +35,15 @@
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
            			<ul>
-           				<li>...Nota... </li>
+           			<% 
+	           			for (Notas nota: notas){
+	       					String IdNota = nota.getIdNota().toString();	
+	   						linkNota = "editaNota.jsp?nota_id=";
+	   						linkNota += nota.getIdNota();
+           			%>
+           			
+           				<li><%=nota.getConteudo() %></li>
+           			<% } %>
            			</ul>
            		<footer>Adicionar Nota...</footer>
            		<div class="container">
