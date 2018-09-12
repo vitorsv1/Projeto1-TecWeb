@@ -42,16 +42,36 @@
 	   						//linkNota = "editaNota.jsp?nota_id=";
 	   						//linkNota += nota.getIdNota();
            			%>
-           			
            				<li><%=nota.getConteudo() %></li>
            			<% } %>
            			</ul>
-           		<footer>Adicionar Nota...</footer>
+           			<% 
+           				
+	           			for (Notas nota: notas){
+	           				String IdNota = nota.getIdNota().toString();
+           			%>
+           				<div class="container">
+           					<div style="display: inline-block">
+           						<a href="editaNota.jsp"><button type="submit">Editar Nota</button></a>
+           					</div>
+           					<div style="display: inline-block">
+			           			<form action="RemoveNota">
+			           				<input type="hidden" name="IdNota" value="<%=IdNota%>">
+			           				<button type="submit">Excluir Nota</button>
+			           			</form>
+		           			</div>
+	           			</div>
+           			<% 
+	           			}
+           			%>
+           			
+           		<footer>Clique abaixo para criar nota..</footer>
            		<div class="container">
            			<div style="display: inline-block">
            				<a href="criaNota.jsp"><button type="submit">Criar Nota</button></a>
            			</div>
            		</div>
+           		
            		<br>
            		<div class="container">
            			<div style="display: inline-block">
