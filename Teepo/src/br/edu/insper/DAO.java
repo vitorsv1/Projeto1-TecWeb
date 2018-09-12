@@ -23,6 +23,8 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
+
+	// PARTE DE CATEGORIAS PRONTA E FUNCIONANDO
 	
 	public List<Categorias> getCategorias(){          			//Pega todas as Categorias do database
 		List<Categorias> Categorias = new ArrayList<Categorias>();
@@ -80,7 +82,7 @@ public class DAO {
 			}
 		}
 	
-	public void removeCategoria(Integer Id) {				//remove categoria com id x     (funciona)
+	public void removeCategoria(Integer Id) {				//remove categoria com id x     
 		PreparedStatement stmt;
 		try {
 			stmt = connection
