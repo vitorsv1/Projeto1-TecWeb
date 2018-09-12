@@ -24,7 +24,7 @@ public class DAO {
 		}
 	}
 	
-	public List<Categorias> getCategorias(){          //Pega todas as Categorias do database
+	public List<Categorias> getCategorias(){          			//Pega todas as Categorias do database
 		List<Categorias> Categorias = new ArrayList<Categorias>();
 		
 		PreparedStatement stmt;
@@ -49,12 +49,11 @@ public class DAO {
 		
 	}
 	
-	public void adicionaCategoria(Categorias categ) {           //adiciona/edita Categorias
+	public void adicionaCategoria(Categorias categ) {           //Metodo que adiciona uma nova categoria no database
 			
 			String sql = "INSERT INTO categorias" +
 						 "(titulo) values(?)";
 			PreparedStatement stmt;
-			//System.out.println(categ.getTitulo());
 			try {
 				stmt = connection.prepareStatement(sql);
 				stmt.setString(1, categ.getTitulo());
@@ -65,7 +64,7 @@ public class DAO {
 				}
 			}
 	
-	public void alteraCategoria(Categorias categ) {
+	public void alteraCategoria(Categorias categ) {				//Metodo que altera o nome da categoria
 		String sql = "UPDATE categorias SET " +
 					 "titulo=?  WHERE idCategoria=?";
 		PreparedStatement stmt;
@@ -81,7 +80,7 @@ public class DAO {
 			}
 		}
 	
-	public void removeCategoria(Integer Id) {				//remove categoria do id x
+	public void removeCategoria(Integer Id) {				//remove categoria com id x     (funciona)
 		PreparedStatement stmt;
 		try {
 			stmt = connection
@@ -96,7 +95,7 @@ public class DAO {
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
-	public List<Notas> getNotas(){          //Pega todas as Notas do database
+	public List<Notas> getNotas(){          //Pega todas as Notas do database 			(funciona)
 		List<Notas> Notas = new ArrayList<Notas>();
 		
 		PreparedStatement stmt;
@@ -122,7 +121,7 @@ public class DAO {
 		
 	}
 	
-	public List<Notas> notasCategoria(Categorias categ){   //Pega as notas da categoria especifica
+	public List<Notas> notasCategoria(Categorias categ){   //Pega as notas da categoria especifica    (funciona)
 		List<Notas> Notas = new ArrayList<Notas>();
 		Integer id_categ = categ.getIdCategoria();
 		PreparedStatement stmt;
@@ -146,8 +145,8 @@ public class DAO {
 		return Notas;
 		}	
 	
-	public void adicionaNota(Notas nota, Integer id_categ) {           //adiciona/edita Notas (para editar temos que adicionar a nota no id antigo)
-	     											 //se não funcionar, ver o edita do handout
+	public void adicionaNota(Notas nota, Integer id_categ) {           //adiciona Notas (para editar temos que adicionar a nota no id antigo)
+	     											 				   //se não funcionar, ver o edita do handout (funciona)
 		String sql = "INSERT INTO notas" +
 					 "(conteudo,idCategoria) values(?,?)";
 		PreparedStatement stmt;
@@ -162,8 +161,24 @@ public class DAO {
 			}
 	}
 	
-	public void removeTodasNotas(Integer id_categ) {
+	public void alteraNota(Notas nota) {								//Assim que receber uma nota, o método vai dar update no database com 
+		String sql = "UPDATE notas SET " +								//o novo conteudo no id de nota que ele já estava (falta teste)		
+					 "conteudo=?  WHERE idNota=?";
 		PreparedStatement stmt;
+		try {
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, nota.getConteudo());
+			stmt.setInt(2, nota.getIdNota());
+			stmt.execute();
+			stmt.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		}
+	
+	public void removeTodasNotas(Integer id_categ) {				  //Como não era possível excluir uma categoria se ela tivesse alguma nota dentro,
+		PreparedStatement stmt;										  //fizemos esse método para excluir todas as notas de uma categoria antes de excluir ela (funciona)
 		try {
 			stmt = connection
 			 .prepareStatement("DELETE FROM notas WHERE idCategoria=?");
@@ -175,7 +190,7 @@ public class DAO {
 			}
 	}
 
-	public void removeNota(Integer idNota) {				//remove nota do id x
+	public void removeNota(Integer idNota) {				//Método para remover nota especifica, recebe o id dela no banco de dados (falta teste)
 		PreparedStatement stmt;
 		try {
 			stmt = connection
