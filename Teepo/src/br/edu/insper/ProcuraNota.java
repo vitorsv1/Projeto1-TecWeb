@@ -25,7 +25,7 @@ public class ProcuraNota extends HttpServlet {
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String busca = request.getParameter("Busca");
+		String busca = request.getParameter("BuscaNota");
 		DAO dao = new DAO();
 		
 		dao.procuraNota(busca);
