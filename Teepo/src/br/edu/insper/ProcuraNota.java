@@ -28,6 +28,8 @@ public class ProcuraNota extends HttpServlet {
 		String busca = request.getParameter("BuscaNota");
 		DAO dao = new DAO();
 		
+		System.out.println(busca);
+		
 		dao.procuraNota(busca);
 		
 		dao.close();

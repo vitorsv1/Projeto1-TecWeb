@@ -43,7 +43,6 @@
            			%>
            				<li>
            					<%=nota.getConteudo() %>
-           					<br>
            					<div style="display: inline-block">
 			           			<div style="display: inline-block">
            							<a href="editaNota.jsp"><button>Editar Nota</button></a>

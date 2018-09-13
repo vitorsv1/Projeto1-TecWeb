@@ -223,7 +223,7 @@ public class DAO {
 		PreparedStatement stmt; 						  //parametro para a busca  (falta teste)
 		try {
 			stmt = connection
-			 .prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE %?%");
+			 .prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE '%?%'");
 			stmt.setString(1, busca);
 			stmt.execute();
 			stmt.close();

@@ -27,6 +27,7 @@
            				           			
            			for (Categorias categ: categorias){
            				String IdCategoria = categ.getIdCategoria().toString();
+           				List<Notas> notas = dao.notasCategoria(categ);
            				link = "editCateg.jsp?categ_id=";
            				link += categ.getIdCategoria();
            			
@@ -34,7 +35,31 @@
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
            			<ul>
-           				<li>...Nota... </li>
+           				<% 
+           				
+	           			for (Notas nota: notas){
+	       					String IdNota = nota.getIdNota().toString();
+	   						//linkNota = "editaNota.jsp?nota_id=";
+	   						//linkNota += nota.getIdNota();
+           			%>
+           				<li>
+           					<%=nota.getConteudo() %>
+           					<br>
+           					<div style="display: inline-block">
+			           			<div style="display: inline-block">
+           							<a href="editaNota.jsp"><button>Editar Nota</button></a>
+        						</div>
+           					</div>
+           					<div style="display: inline-block">
+	           					<form action="RemoveNota">
+				           			<input type="hidden" name="IdNota" value="<%=IdNota%>">
+				           			<input type="hidden" name="IdCategoria" value="<%=IdCategoria%>">
+				           			<button type="submit">Excluir Nota</button>
+				           		</form>
+				           	</div>
+           				</li>
+           				
+           			<% } %>
            			</ul>
            		<footer>Adicionar Nota...</footer>
            		<br>

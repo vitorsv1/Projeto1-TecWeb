@@ -36,7 +36,6 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
-           		<form action="CriaNota">
            			<ul>
            			<% 
            			
@@ -64,28 +63,28 @@
            			<% } %>
            			</ul>
            			<footer>Adicionar Nota...</footer>
-           				<br>
-           			<div class="container">
-           				<div style="display: inline-block">
-           					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-	           				<input type="text" name="conteudoNota">
-	           				<a href="home.jsp"><button type="submit">Confirmar Nota</button></a>
+	           		<form action="CriaNota">
+	           			<div class="container">
+	           				<div style="display: inline-block">
+	           					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+		           				<input type="text" name="conteudoNota">
+		           				<a href="home.jsp"><button type="submit">Confirmar Nota</button></a>
+	           				</div>
            				</div>
-           			</div>
-           		</form>
-           		<br>
-           		<div class="container">
-           			<div style="display: inline-block">
-	           			<form action="RemoveCategoria2">
-	           				<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-	           				<button type="submit">Deletar Categoria</button>
-	           			</form>
-           			</div>
-           			<div style="display: inline-block">
-           				<a href="editaCategoria.jsp"><button>Editar Categoria</button></a>
-        			</div>
-        		</div>
-           </div>
+           			</form>
+           			<br>
+	           		<div class="container">
+	           			<div style="display: inline-block">
+		           			<form action="RemoveCategoria2">
+		           				<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+		           				<button type="submit">Deletar Categoria</button>
+		           			</form>
+	           			</div>
+	           			<div style="display: inline-block">
+	           				<a href="editaCategoria.jsp"><button>Editar Categoria</button></a>
+	        			</div>
+	        		</div>
+           		</div>
            <% }
            	  	}
            	%>

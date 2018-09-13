@@ -16,6 +16,11 @@
         <div class="listas">
         	<div class="lista">
                 <a href=<%=linkCategoria%>><button>Criar Categoria</button></a>
+                <div class="searchBar">
+		    		<form action="ProcuraNota">
+		    			<input type="text" name="BuscaNota" placeholder="Search..">
+		    		</form>
+    			</div>
             </div>
            <!-- AQUI TEM QUE TER O RETURN DAS CATEGORIAS COM TABELAS-->
            <%
@@ -86,5 +91,6 @@
            			}%>
         </div>
     	</div>
+    	
     </body>
 </html>
