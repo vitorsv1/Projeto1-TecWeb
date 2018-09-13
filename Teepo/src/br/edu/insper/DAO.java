@@ -95,6 +95,19 @@ public class DAO {
 			}
 		}
 	
+	public void procuraCategoria(String busca) {				  //Metodo que faz a busca em categorias que tenham titulo parecido com o que foi dado como
+		PreparedStatement stmt; 						  		  //parametro para a busca  (falta teste)
+		try {
+			stmt = connection
+			 .prepareStatement("SELECT titulo FROM categorias WHERE titulo LIKE %?%");
+			stmt.setString(1, busca);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+	}
+	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
 	
 	public List<Notas> getNotas(){          //Pega todas as Notas do database 			(funciona)
@@ -220,6 +233,11 @@ public class DAO {
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+	public void busca(String busca) {                    //metodo que usa os metodos de busca em notas e em categorias para procurar nos dois (falta teste)
+		procuraNota(busca);
+		procuraCategoria(busca);
+	}
 	
 	public void close() {
 		try {
