@@ -95,17 +95,30 @@ public class DAO {
 			}
 		}
 	
-	public void procuraCategoria(String busca) {				  //Metodo que faz a busca em categorias que tenham titulo parecido com o que foi dado como
-		PreparedStatement stmt; 						  		  //parametro para a busca  (falta teste)
+	public List<Categorias> procuraCategoria(String busca){          			    //Metodo que faz a busca em categorias que tenham titulo parecido com o que foi dado como
+		PreparedStatement stmt; 						  		  					//parametro para a busca  (falta teste)
+	
+		List<Categorias> buscaCategorias = new ArrayList<Categorias>();
 		try {
-			stmt = connection
-			 .prepareStatement("SELECT titulo FROM categorias WHERE titulo LIKE %?%");
+			stmt = connection.
+					prepareStatement("SELECT titulo FROM categorias WHERE titulo LIKE '%?%'");
 			stmt.setString(1, busca);
-			stmt.execute();
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Categorias categ = new Categorias();
+				categ.setIdCategoria(rs.getInt("idCategoria"));
+				categ.setTitulo(rs.getString("titulo"));
+				
+				buscaCategorias.add(categ);
+				}
+			rs.close();
 			stmt.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			}
+		}
+		return buscaCategorias;
+		
 	}
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	
@@ -219,17 +232,29 @@ public class DAO {
 			}
 		}
 	
-	public void procuraNota(String busca) {				  //Metodo que faz a busca em notas que tenham conteudo parecido com o que foi dado como
-		PreparedStatement stmt; 						  //parametro para a busca  (falta teste)
+	public List<Notas> procuraNota(String busca){          			    //Metodo que faz a busca em categorias que tenham titulo parecido com o que foi dado como
+		PreparedStatement stmt; 						  		  					//parametro para a busca  (falta teste)
+	
+		List<Notas> buscaNotas = new ArrayList<Notas>();
 		try {
-			stmt = connection
-			 .prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE '%?%'");
+			stmt = connection.
+					prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE '%?%'");
 			stmt.setString(1, busca);
-			stmt.execute();
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				Notas nota = new Notas();
+				nota.setConteudo(rs.getString("conteudo"));
+				
+				buscaNotas.add(nota);
+				}
+			rs.close();
 			stmt.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			}
+		}
+		return buscaNotas;
+		
 	}
 	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
