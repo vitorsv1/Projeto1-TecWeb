@@ -205,6 +205,21 @@ public class DAO {
 			}
 		}
 	
+	public void procuraNota(String busca) {				  //Metodo que faz a busca em notas que tenham conteudo parecido com o que foi dado como
+		PreparedStatement stmt; 						  //parametro para a busca  (falta teste)
+		try {
+			stmt = connection
+			 .prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE %?%");
+			stmt.setString(1, busca);
+			stmt.execute();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+	}
+	
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	public void close() {
 		try {
 			connection.close();
