@@ -21,14 +21,47 @@
 		   	</form>
     	</div>
         
-        <div class="lista">
-            <header>Categoria1</header>
-            	<ul>
-		             <li>Cartão</li>
-		             <li>Cartão2</li>
-             	</ul>
-            <footer name='adiciona-nota'>Adicionar Nota..</footer>
+        <%
+           			DAO dao = new DAO();
+           			List<Categorias> categorias = dao.getCategorias();
+           			           			
+           			if (categorias != null){
+           				           			
+           			for (Categorias categ: categorias){
+           				List<Notas> notas = dao.notasCategoria(categ);
+           				String IdCategoria = categ.getIdCategoria().toString();
+           				           			
+           %>
+           <div class="lista">
+           		<header><%=categ.getTitulo()%></header>
+           			<ul>
+           			<% 
+           				
+	           			for (Notas nota: notas){
+	       					String IdNota = nota.getIdNota().toString();
+	   						
+           			%>
+           				<li>
+           					<%=nota.getConteudo() %>
+           					<br>
+           					<div style="display: inline-block">
+			           			<div style="display: inline-block">
+           							<a href="editaNota.jsp"><button>Editar Nota</button></a>
+        						</div>
+           					</div>
+           					<div style="display: inline-block">
+	           					<form action="RemoveNota">
+				           			<input type="hidden" name="IdNota" value="<%=IdNota%>">
+				           			<button type="submit">Excluir Nota</button>
+				           		</form>
+				           	</div>
+           				</li>           				           			
+           			</ul>      
+           		<% } %>
+           		<footer> Teepo </footer>    
         </div>
+        
+        <% }}%>
     </div>
 </div>
 </body>

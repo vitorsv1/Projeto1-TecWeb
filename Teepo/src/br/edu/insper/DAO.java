@@ -165,12 +165,13 @@ public class DAO {
 	
 	public void alteraNota(Notas nota) {								//Assim que receber uma nota, o método vai dar update no database com 
 		String sql = "UPDATE notas SET " +								//o novo conteudo no id de nota que ele já estava (falta teste)		
-					 "conteudo=?  WHERE idNota=?";
+					 "conteudo=?  WHERE idNota=? AND idCategoria=?";
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, nota.getConteudo());
 			stmt.setInt(2, nota.getIdNota());
+			stmt.setInt(3, nota.getIdCategoria());
 			stmt.execute();
 			stmt.close();
 			

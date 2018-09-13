@@ -48,9 +48,9 @@ public class EditaNota extends HttpServlet {
 		
 		nota.setIdNota(idNota);
 		nota.setIdCategoria(idCateg);
-		//nota.setConteudo(conteudo);
+		nota.setConteudo(request.getParameter("ConteudoNota"));
 		
-		//dao.alteraNota();
+		dao.alteraNota(nota);
 		
 		dao.close();
 		
