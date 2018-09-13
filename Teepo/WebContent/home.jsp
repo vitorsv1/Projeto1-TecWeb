@@ -62,6 +62,7 @@
            			<% } %>
            			</ul>
            		<footer>Clique abaixo para criar nota..</footer>
+           		<br>
            		<div class="container">
            			<div style="display: inline-block">
            				<a href="criaNota.jsp"><button type="submit">Criar Nota</button></a>

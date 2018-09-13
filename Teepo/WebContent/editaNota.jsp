@@ -46,12 +46,12 @@
            					<br>
            					<div style="display: inline-block">
 			           			<div style="display: inline-block">
-			           				<form action="editaNota.jsp" id="notaForm">
+			           				<form action="EditaNota" id="notaForm">
 			           					<input type="hidden" name="IdNota" value="<%=IdNota%>">
 				           				<input type="hidden" name="IdCategoria" value="<%=IdCategoria%>">
-										<textarea name="comment" form="notaForm"><%=nota.getConteudo() %></textarea>
-           								<a href="home.jsp"><button>Confirmar</button></a>
-           							</form>
+										<textarea name="ConteudoNota" form="notaForm"><%=nota.getConteudo() %></textarea>
+										<button>Confirmar</button>
+									</form>
         						</div>
            					</div>
            					<div style="display: inline-block">
@@ -65,6 +65,7 @@
            			<% } %>
            			</ul>
            		<footer>Clique abaixo para criar nota..</footer>
+           		<br>
            		<div class="container">
            			<div style="display: inline-block">
            				<a href="criaNota.jsp"><button type="submit">Criar Nota</button></a>

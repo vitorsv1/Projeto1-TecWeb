@@ -29,10 +29,7 @@ public class CriaNota extends HttpServlet {
 		DAO dao = new DAO();
 		 
 		Notas nota = new Notas();
-		
-		System.out.println("AAAAAAAAAAAAAAA");
-		System.out.println(request.getParameter("conteudoNota"));
-		
+				
 		nota.setConteudo(request.getParameter("conteudoNota"));
 		nota.setIdCategoria(idCateg);
 		

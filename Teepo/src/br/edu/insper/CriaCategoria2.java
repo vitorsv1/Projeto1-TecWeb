@@ -32,7 +32,6 @@ public class CriaCategoria2 extends HttpServlet {
 		DAO dao = new DAO();
 		 
 		Categorias categ = new Categorias();
-		//System.out.println(request.getParameter("tituloCategoria"));
 		categ.setTitulo(request.getParameter("tituloCategoria"));
 		
 		dao.adicionaCategoria(categ);

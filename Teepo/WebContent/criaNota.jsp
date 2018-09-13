@@ -64,6 +64,7 @@
            			<% } %>
            			</ul>
            			<footer>Adicionar Nota...</footer>
+           				<br>
            			<div class="container">
            				<div style="display: inline-block">
            					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
