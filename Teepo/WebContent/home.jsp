@@ -16,13 +16,8 @@
         <div class="listas">
         	<div class="lista">
                 <a href=<%=linkCategoria%>><button>Criar Categoria</button></a>
-                <div class="searchBar">
-		    		<form action="ProcuraNota">
-		    			<input type="text" name="BuscaNota" placeholder="Search..">
-		    		</form>
-    			</div>
+				<a href="procura.jsp"><button>Pesquisar</button></a>
             </div>
-           <!-- AQUI TEM QUE TER O RETURN DAS CATEGORIAS COM TABELAS-->
            <%
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
@@ -44,8 +39,6 @@
            				
 	           			for (Notas nota: notas){
 	       					String IdNota = nota.getIdNota().toString();
-	   						//linkNota = "editaNota.jsp?nota_id=";
-	   						//linkNota += nota.getIdNota();
            			%>
            				<li>
            					<%=nota.getConteudo() %>
