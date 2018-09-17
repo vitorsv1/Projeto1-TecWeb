@@ -8,6 +8,8 @@ CREATE TABLE categorias (
 CREATE TABLE notas (
 	idNota INT(5) PRIMARY KEY AUTO_INCREMENT,
     conteudo TEXT,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_update TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     idCategoria INT(5),  
     FOREIGN KEY(idCategoria) REFERENCES categorias(idCategoria));
     
