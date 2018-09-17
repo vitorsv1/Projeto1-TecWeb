@@ -40,6 +40,7 @@
 	           			for (Notas nota: notas){
 	       					String IdNota = nota.getIdNota().toString();
 	       					link += "?nota_id=" + nota.getIdNota();
+	       					
 	   						
            			%>
            				<li>           					
@@ -62,9 +63,9 @@
 				           		</form>
 				           	</div>
            				</li>
-           			<% } %>
            			</ul>
-           		<footer>Clique abaixo para criar nota..</footer>
+           		<footer><%=nota.getDataCriacao() %></footer>
+           		<% } %>
            		<br>
            		<div class="container">
            			<div style="display: inline-block">

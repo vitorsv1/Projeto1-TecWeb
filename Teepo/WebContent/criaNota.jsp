@@ -9,6 +9,7 @@
     </head>
     <body>
     	<%@ page import="java.util.*,br.edu.insper.*"%>
+    	<%@ page import="java.sql.Timestamp"%>
     	<% String linkCategoria = "criaCategoria.jsp";%>
         <div class="init">
         <nav class="navbar">Teeppo</nav> 
@@ -18,7 +19,7 @@
                 <a href=<%=linkCategoria%>><button>Criar Categoria</button></a>
             </div>
            <!-- AQUI TEM QUE TER O RETURN DAS CATEGORIAS COM TABELAS-->
-           <%
+           <%		
            			DAO dao = new DAO();
            			List<Categorias> categorias = dao.getCategorias();
            			
@@ -38,10 +39,11 @@
            		<header><%=categ.getTitulo()%></header>
            			<ul>
            			<% 
-           			
+           				Timestamp time;
 	           			for (Notas nota: notas){
 	           				
 	       					String IdNota = nota.getIdNota().toString();	
+	       					time = nota.getDataCriacao();
 	   						
            			%>
            			
@@ -60,18 +62,19 @@
 				           		</form>
 				           	</div>
            				</li>
-           			<% } %>
            			</ul>
-           			<footer>Adicionar Nota...</footer>
+           			<footer><%=time%></footer>
 	           		<form action="CriaNota">
 	           			<div class="container">
 	           				<div style="display: inline-block">
 	           					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
+	           					<input type="hidden" name="Time" value="<%=time%>"/>
 		           				<input type="text" name="conteudoNota">
 		           				<a href="home.jsp"><button type="submit">Confirmar Nota</button></a>
 	           				</div>
            				</div>
            			</form>
+           			<% } %>
            			<br>
 	           		<div class="container">
 	           			<div style="display: inline-block">
