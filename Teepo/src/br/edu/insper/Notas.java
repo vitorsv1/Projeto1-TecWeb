@@ -1,10 +1,14 @@
 package br.edu.insper;
 
+import java.sql.Timestamp;
+
 public class Notas {
 	private Integer idNota;
 	private Integer idCategoria;
 	private String conteudo;
 	private String cor;
+	private Timestamp data_criacao;
+	private Timestamp data_update;
 	
 	public Integer getIdNota() {
 		return idNota;
@@ -30,5 +34,16 @@ public class Notas {
 	public void setCor(String cor) {
 		this.cor = cor;
 	}
-	
+	public Timestamp getDataCriacao() {
+		return data_criacao;
+	}
+	public void setDataCriacao(Timestamp data) {
+		this.data_criacao = data;
+	}
+	public Timestamp getDataUpdate() {
+		return data_update;
+	}
+	public void setDataUpdate(Timestamp data) {
+		this.data_update = data;
+	}
 }

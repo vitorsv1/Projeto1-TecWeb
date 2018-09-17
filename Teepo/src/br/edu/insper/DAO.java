@@ -136,6 +136,8 @@ public class DAO {
 				nota.setIdNota(rs.getInt("idNota"));
 				nota.setIdCategoria(rs.getInt("idCategoria"));
 				nota.setConteudo(rs.getString("conteudo"));
+				nota.setDataCriacao(rs.getTimestamp("data_criacao"));
+				nota.setDataUpdate(rs.getTimestamp("data_update"));
 				
 				Notas.add(nota);
 				}
@@ -162,6 +164,9 @@ public class DAO {
 				nota.setIdNota(rs.getInt("idNota"));
 				nota.setIdCategoria(rs.getInt("idCategoria"));
 				nota.setConteudo(rs.getString("conteudo"));	
+				nota.setDataCriacao(rs.getTimestamp("data_criacao"));
+				nota.setDataUpdate(rs.getTimestamp("data_update"));
+				
 				Notas.add(nota);
 				}
 			rs.close();
