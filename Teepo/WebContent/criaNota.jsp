@@ -63,18 +63,20 @@
 				           	</div>
            				</li>
            			</ul>
+           			<input type="hidden" name="Time" value="<%=time%>"/>
            			<footer><%=time%></footer>
+           			<% } %>
 	           		<form action="CriaNota">
 	           			<div class="container">
 	           				<div style="display: inline-block">
 	           					<input type="hidden" name="IdCategoria" value="<%=IdCategoria %>"/>
-	           					<input type="hidden" name="Time" value="<%=time%>"/>
+	           					
 		           				<input type="text" name="conteudoNota">
 		           				<a href="home.jsp"><button type="submit">Confirmar Nota</button></a>
 	           				</div>
            				</div>
            			</form>
-           			<% } %>
+           			
            			<br>
 	           		<div class="container">
 	           			<div style="display: inline-block">
