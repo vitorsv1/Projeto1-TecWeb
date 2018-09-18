@@ -18,7 +18,7 @@ public class DAO {
 		}
 		try {
 			connection = DriverManager.getConnection(
-			"jdbc:mysql://localhost/teepo", "root", "Certezajorge123");
+			"jdbc:mysql://google/teepo?cloudSqlInstance=tecweb-216810&socketFactory=com.google.sql.mysql.SocketFactory&user=root-1&password=Certezajorge123&useSSL=false");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
