@@ -95,6 +95,27 @@ public class DAO {
 			}
 		}
 	
+	public Categorias getCategoriaFromId(Integer Id) {
+		PreparedStatement stmt;
+
+		Categorias categ = new Categorias();
+		try {
+			stmt = connection
+			 .prepareStatement("SELECT * FROM categorias WHERE idCategoria=?");
+			stmt.setInt(1, Id);
+			ResultSet rs = stmt.executeQuery();
+			while(rs.next()) {
+				categ.setIdCategoria(rs.getInt("idCategoria"));
+				categ.setTitulo(rs.getString("titulo"));
+			}
+			rs.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			}
+		return categ;
+	}
+	
 	public List<Categorias> procuraCategoria(String busca){          			    //Metodo que faz a busca em categorias que tenham titulo parecido com o que foi dado como
 		PreparedStatement stmt; 						  		  					//parametro para a busca  (falta teste)
 	
@@ -102,7 +123,7 @@ public class DAO {
 		try {
 			stmt = connection.
 					prepareStatement("SELECT titulo FROM categorias WHERE titulo LIKE '%?%'");
-			stmt.setString(1, busca);
+			stmt.setString(1, "'%" + busca + "%'");
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Categorias categ = new Categorias();
@@ -243,12 +264,14 @@ public class DAO {
 		List<Notas> buscaNotas = new ArrayList<Notas>();
 		try {
 			stmt = connection.
-					prepareStatement("SELECT conteudo FROM notas WHERE conteudo LIKE '%?%'");
-			stmt.setString(1, busca);
+					prepareStatement("SELECT * FROM notas WHERE conteudo LIKE '%"+busca+"%'");
+			//stmt.setString(1, busca);
 			ResultSet rs = stmt.executeQuery();
 			while (rs.next()) {
 				Notas nota = new Notas();
 				nota.setConteudo(rs.getString("conteudo"));
+				nota.setIdCategoria(rs.getInt("idCategoria"));
+				nota.setIdNota(rs.getInt("idNota"));
 				
 				buscaNotas.add(nota);
 				}

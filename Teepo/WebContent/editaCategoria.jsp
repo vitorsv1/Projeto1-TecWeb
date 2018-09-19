@@ -34,14 +34,12 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
-           			<ul>
-           				<% 
-           				
-	           			for (Notas nota: notas){
+           			<% 
+           				for (Notas nota: notas){
 	       					String IdNota = nota.getIdNota().toString();
-	   						//linkNota = "editaNota.jsp?nota_id=";
-	   						//linkNota += nota.getIdNota();
+	   						
            			%>
+           			<ul>
            				<li>
            					<%=nota.getConteudo() %>
            					<br>

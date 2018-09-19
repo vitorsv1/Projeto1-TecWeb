@@ -37,7 +37,6 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
-           			<ul>
            			<% 
            				Timestamp time;
 	           			for (Notas nota: notas){
@@ -46,7 +45,7 @@
 	       					time = nota.getDataCriacao();
 	   						
            			%>
-           			
+           			<ul>
            				<li>
            					<%=nota.getConteudo() %>
            					<br>

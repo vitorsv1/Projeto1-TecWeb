@@ -16,7 +16,10 @@
         <div class="listas">
         	<div class="lista">
                 <a href=<%=linkCategoria%>><button>Criar Categoria</button></a>
-				<a href="procura.jsp"><button>Pesquisar</button></a>
+                <form action="ProcuraNota">
+	                <input type="text" name="BuscaNota" placeholder="Search..">
+					<a href="procura.jsp"><button>Pesquisar</button></a>
+				</form>
             </div>
            <%
            			DAO dao = new DAO();
@@ -34,12 +37,11 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
-           			<ul>
-           			<% 
-           				
-	           			for (Notas nota: notas){
+           		    <% 
+           				for (Notas nota: notas){
 	       					String IdNota = nota.getIdNota().toString();
            			%>
+           			<ul>
            				<li>
            					<%=nota.getConteudo() %>
            					<br>
@@ -57,7 +59,7 @@
 				           	</div>
            				</li>
            			</ul>
-           		<footer><%=nota.getDataCriacao() %></footer>
+           		<footer><%=nota.getDataUpdate() %></footer>
            		<% } %>
            		<br>
            		<div class="container">

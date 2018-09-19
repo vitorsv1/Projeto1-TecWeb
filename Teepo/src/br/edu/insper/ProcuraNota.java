@@ -33,7 +33,7 @@ public class ProcuraNota extends HttpServlet {
 		dao.procuraNota(busca);
 		
 		dao.close();
-		request.getRequestDispatcher("home.jsp").forward(request, response);
+		request.getRequestDispatcher("procura.jsp").forward(request, response);
 	}
 	
 }

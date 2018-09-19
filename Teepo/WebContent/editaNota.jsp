@@ -34,15 +34,13 @@
            %>
            <div class="lista">
            		<header><%=categ.getTitulo()%></header>
-           			<ul>
            			<% 
-           				
 	           			for (Notas nota: notas){
 	       					String IdNota = nota.getIdNota().toString();
 	       					link += "?nota_id=" + nota.getIdNota();
-	       					
-	   						
            			%>
+           			<ul>
+           			
            				<li>           					
            					<br>
            					<div style="display: inline-block">

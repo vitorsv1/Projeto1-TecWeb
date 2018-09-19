@@ -12,9 +12,7 @@
         <nav class="navbar">Teeppo</nav> 
         <nav class="navbar board">Board</nav>   
         <div class="listas">
-        	<div class="lista">
-                <a href="criaCategoria.jsp"><button>Criar Categoria</button></a>
-            </div>
+            <a href="home.jsp">Clique aqui para acessar seu Teepo</a>
         </div>
     	</div>
     </body>
